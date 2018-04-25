@@ -12,13 +12,13 @@
 						<h5 class="text-uppercase mb-4 mt-3 font-weight-bold">Facebook</h5>
 						<ul class="list-unstyled">
 							<li>
-								<a href="#!">Oussama Essamadi</a>
+								<a href="https://www.facebook.com/oussama.essamadi">Oussama Essamadi</a>
 							</li>
 							<li>
-								<a href="#!">Redouan Andaloussi</a>
+								<a href="https://www.facebook.com/andaloussir">Redouan Andaloussi</a>
 							</li>
 							<li>
-								<a href="#!">Rachid</a>
+								<a href="https://www.facebook.com/rachid.louajdim">Rachid Louajdi</a>
 							</li>
 						</ul>
 					</div>
@@ -29,13 +29,13 @@
 						<h5 class="text-uppercase mb-4 mt-3 font-weight-bold">Linkedin</h5>
 						<ul class="list-unstyled">
 							<li>
-								<a href="#!">Oussama Essamadi</a>
+								<a href="https://www.linkedin.com/in/oussama-essamadi-a59326155/">Oussama Essamadi</a>
 							</li>
 							<li>
-								<a href="#!">Redouan Andaloussi</a>
+								<a href="https://www.linkedin.com/in/andaloussir">Redouan Andaloussi</a>
 							</li>
 							<li>
-								<a href="#!">Rachid</a>
+								<a href="linkedin.com/in/rachid-louajdi">Rachid Louajdi</a>
 							</li>
 						</ul>
 					</div>
@@ -46,13 +46,13 @@
 						<h5 class="text-uppercase mb-4 mt-3 font-weight-bold">Google+</h5>
 						<ul class="list-unstyled">
 							<li>
-								<a href="#!">Oussama Essamadi</a>
+								<a href="https://plus.google.com/u/0/+eoussama">Oussama Essamadi</a>
 							</li>
 							<li>
-								<a href="#!">Redouan Andaloussi</a>
+								<a href="https://plus.google.com/u/0/110136347706439063851">Redouan Andaloussi</a>
 							</li>
 							<li>
-								<a href="#!">Rachid</a>
+								<a href="rachidlouajdi5@gmail.com">Rachid Louajdi</a>
 							</li>
 						</ul>
 					</div>
