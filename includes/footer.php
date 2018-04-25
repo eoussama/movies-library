@@ -12,13 +12,13 @@
 						<h5 class="text-uppercase mb-4 mt-3 font-weight-bold">Facebook</h5>
 						<ul class="list-unstyled">
 							<li>
-								<a href="https://www.facebook.com/oussama.essamadi">Oussama Essamadi</a>
+								<a target="_blank" href="https://www.facebook.com/oussama.essamadi">Oussama Essamadi</a>
 							</li>
 							<li>
-								<a href="https://www.facebook.com/andaloussir">Redouan Andaloussi</a>
+								<a target="_blank" href="https://www.facebook.com/andaloussir">Redouan Andaloussi</a>
 							</li>
 							<li>
-								<a href="https://www.facebook.com/rachid.louajdim">Rachid Louajdi</a>
+								<a target="_blank" href="https://www.facebook.com/rachid.louajdim">Rachid Louajdi</a>
 							</li>
 						</ul>
 					</div>
@@ -29,13 +29,13 @@
 						<h5 class="text-uppercase mb-4 mt-3 font-weight-bold">Linkedin</h5>
 						<ul class="list-unstyled">
 							<li>
-								<a href="https://www.linkedin.com/in/oussama-essamadi-a59326155/">Oussama Essamadi</a>
+								<a target="_blank" href="https://www.linkedin.com/in/oussama-essamadi-a59326155/">Oussama Essamadi</a>
 							</li>
 							<li>
-								<a href="https://www.linkedin.com/in/andaloussir">Redouan Andaloussi</a>
+								<a target="_blank" href="https://www.linkedin.com/in/andaloussir">Redouan Andaloussi</a>
 							</li>
 							<li>
-								<a href="linkedin.com/in/rachid-louajdi">Rachid Louajdi</a>
+								<a target="_blank" href="linkedin.com/in/rachid-louajdi">Rachid Louajdi</a>
 							</li>
 						</ul>
 					</div>
@@ -46,13 +46,13 @@
 						<h5 class="text-uppercase mb-4 mt-3 font-weight-bold">Google+</h5>
 						<ul class="list-unstyled">
 							<li>
-								<a href="https://plus.google.com/u/0/+eoussama">Oussama Essamadi</a>
+								<a target="_blank" href="https://plus.google.com/u/0/+eoussama">Oussama Essamadi</a>
 							</li>
 							<li>
-								<a href="https://plus.google.com/u/0/110136347706439063851">Redouan Andaloussi</a>
+								<a target="_blank" href="https://plus.google.com/u/0/110136347706439063851">Redouan Andaloussi</a>
 							</li>
 							<li>
-								<a href="rachidlouajdi5@gmail.com">Rachid Louajdi</a>
+								<a target="_blank" href="rachidlouajdi5@gmail.com">Rachid Louajdi</a>
 							</li>
 						</ul>
 					</div>
@@ -67,7 +67,7 @@
 						<h5 class="mb-1">Register for free</h5>
 					</li>
 					<li class="list-inline-item">
-						<a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
+						<a href="#!" data-toggle="modal" data-target="#signupModal" class="btn btn-danger btn-rounded">Sign up!</a>
 					</li>
 				</ul>
 			</div>

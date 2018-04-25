@@ -14,11 +14,11 @@
 		$output .= "
 			<div class=\"col\">
 				<div class=\"card\" style=\"width: 18rem;\">
-					<img class=\"card-img-top\" style=\"height: 300px;\" src=\"\movies-library\images\movies\\${movie["movieId"]}.jpg\" alt=\"Card image cap\">
+					<img class=\"card-img-top\" style=\"height: 300px;\" src=\"\movies-library\images\movies\\${movie["movieId"]}.jpg\" alt=\"${movie["title"]} image\">
 					<div class=\"card-body\">
 						<h5 class=\"card-title\">${movie["title"]} - (".date('Y', strtotime($movie["releaseDate"])).")</h5>
 						<p class=\"card-text\">${movie["description"]}</p>
-						<a href=\"#\" class=\"btn btn-primary\">Details</a>
+						<a href=\"\movies-library\pages\movie.php?movie=${movie["movieId"]}\" class=\"btn btn-primary\">Details</a>
 					</div>
 				</div>
 			</div>
