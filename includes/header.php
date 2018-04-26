@@ -146,7 +146,9 @@
 								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Crime">Crime</a>
 								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Drama">Drama</a>
 								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Fantasy">Fantasy</a>
+								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=History">History</a>
 								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Horro">Horror</a>
+								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Mystery">Mystery</a>
 								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Sci-fi">Sci-fi</a>
 								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Romance">Romance</a>
 								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Thriller">Thriller</a>
