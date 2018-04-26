@@ -23,3 +23,11 @@ nav.navbar-sticky {
 	width: 100%;
     z-index: 100;
 }
+
+i#addMovie {
+	cursor: pointer;
+	transition-property: color;
+	transition-duration: .5s;
+}
+
+i#addMovie:hover { color: #404040; }

@@ -32,4 +32,16 @@ $(document).ready(function() {
 		else
 			$navbar.removeClass('navbar-sticky');
 	});
+
 });
+
+function addMovie(movieId, movieTitle) {
+	$.ajax({
+	  url: "/movies-library/includes/addMovie.php",
+	  type: "POST",
+	  data: {movieId : movieId}
+	}).done(function(data) {
+		$('#movieModal div.modal-body p').html(`<b>${movieTitle}</b> has been added to your library.`);
+		$('#movieModal').modal('show');
+	});
+}

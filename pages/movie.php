@@ -24,7 +24,20 @@
  		<main class="container mt-5 mb-5">
        		<div class="card mt-5 mb-5">
 				<div class="card-header">
-					<h2><?php echo "${movie["title"]} - (".date('Y', strtotime($movie["releaseDate"])).")"; ?></h2>
+					<?php if($_SESSION['logged-in'] == true): ?>
+						<div class="row">
+							<div class="col-10">
+								<h2 class="text-left"><?php echo "${movie["title"]} - (".date('Y', strtotime($movie["releaseDate"])).")"; ?></h2>
+							</div>
+							<div class="col-2">
+								<h2 class="text-right">
+									<i id="addMovie" class="fa fa-plus" onclick="addMovie(<?php echo $movieId.", '".$movie["title"]."'"; ?>);"></i>
+								</h2>
+							</div>
+						</div>
+					<?php else: ?>
+						<h2><?php echo "${movie["title"]} - (".date('Y', strtotime($movie["releaseDate"])).")"; ?></h2>
+					<?php endif; ?>
 				</div>
 				<div class="card-body" id="movieInfo">
 					<div class="row">

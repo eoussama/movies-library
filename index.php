@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	
-	$_SESSION['logged-in'] = (!isset($_SESSION['logged-in'])) ? true : $_SESSION['logged-in'];
+	$_SESSION['logged-in'] = (!isset($_SESSION['logged-in'])) ? false : $_SESSION['logged-in'];
 	$_SESSION['loginFailed'] = (!isset($_SESSION['loginFailed'])) ? false : $_SESSION['loginFailed'];
 	$_SESSION['username'] = (!isset($_SESSION['username'])) ? '' : $_SESSION['username'];
 	$_SESSION['password'] = (!isset($_SESSION['password'])) ? '' : $_SESSION['password'];
