@@ -18,7 +18,7 @@
 	</head>
     
     <body>
-		<div class="jumbotron" style="height: 100vh; padding: 200px;">
+		<div class="jumbotron" style="height: 100vh; padding: 250px;">
 			<h1 class="display-1 text-center"><i class="fas fa-bug"></i> Ops, file not found!</h1>
 			<hr>
 			<p class="text-center">The page you're trying to access does not exists! either that, or there were some problems while being redirected, in that case please let our support team know.</p>

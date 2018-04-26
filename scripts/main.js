@@ -15,12 +15,11 @@ $(document).ready(function() {
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	});
 	
-	$subBtn.on('click', function(e) {
+	$subBtn.on('click', function() {
 		let
 			$passInput = $('#passInput'),
 			$pConfInput = $('#pConfInput');
 		
-		console.log($passInput.val(), $pConfInput.val());
 		if($passInput.val() !== $pConfInput.val())
 			$($pConfInput)[0].setCustomValidity('The passwords do not match!');
 		else

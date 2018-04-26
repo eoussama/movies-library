@@ -1,8 +1,19 @@
 <?php
+	session_start();
+	
+	$_SESSION['logged-in'] = (!isset($_SESSION['logged-in'])) ? true : $_SESSION['logged-in'];
+	$_SESSION['loginFailed'] = (!isset($_SESSION['loginFailed'])) ? false : $_SESSION['loginFailed'];
+	$_SESSION['username'] = (!isset($_SESSION['username'])) ? '' : $_SESSION['username'];
+	$_SESSION['password'] = (!isset($_SESSION['password'])) ? '' : $_SESSION['password'];
+	$_SESSION['userId'] = (!isset($_SESSION['userId'])) ? 0: $_SESSION['userId'];
+	$_SESSION['joinDate'] = (!isset($_SESSION['joinDate'])) ? 0 : $_SESSION['joinDate'];
+	$_SESSION['moderator'] = (!isset($_SESSION['moderator'])) ? 0 : $_SESSION['moderator'];
+
 	include "../includes/header.php";
 	include "../includes/database.php";
 
 	$searchQuery = $_GET['searchQuery'];
+	$searchQuery = mysqli_real_escape_string($con, $searchQuery);
 	$filterCategory = !isset($_GET['filterCategory']) == true ? "" : $_GET['filterCategory'];
 	$resultPage = !isset($_GET['resultPage']) == true ? 0 : $_GET['resultPage'];
 	
@@ -15,6 +26,7 @@
 		$query = "SELECT * FROM `movies` WHERE `title` LIKE '%$searchQuery%' AND `categories` LIKE '%$filterCategory%' LIMIT ".($resultPage * 5).", 5;";
 		$rquery = "SELECT * FROM `movies` WHERE `title` LIKE '%$searchQuery%' AND `categories` LIKE '%$filterCategory%';";
 	}
+
 	$results = mysqli_query($con, $query);
 	$rows = mysqli_num_rows(mysqli_query($con, $rquery));
 	$pages = ceil($rows / 5);
@@ -54,26 +66,28 @@
 				<?php endforeach; ?>
        		<?php endif; ?>
        		
-       		<nav aria-label="Movie pagination">
-				<ul class="pagination justify-content-center">
-					<li class="page-item <?php if($resultPage == 0) echo "disabled" ?>">
-						<a class="page-link" href="<?php echo "\movies-library\pages\search.php?searchQuery=$searchQuery&filterCategory=$filterCategory&resultPage=".($resultPage - 1); ?>" aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-							<span class="sr-only">Previous</span>
-						</a>
-					</li>
-					<?php for($i = 0; $i<$pages; $i++): ?>
-						<li class="page-item <?php if($i == $resultPage) echo "active" ?>"><a class="page-link" href="<?php echo "\movies-library\pages\search.php?searchQuery=$searchQuery&filterCategory=$filterCategory&resultPage=$i"; ?>"><?php echo $i + 1; ?></a></li>
-					<?php endfor; ?>
-					<li class="page-item <?php if($resultPage + 1 == $pages) echo "disabled" ?>">
-						<a class="page-link" href="<?php echo "\movies-library\pages\search.php?searchQuery=$searchQuery&filterCategory=$filterCategory&resultPage=".($resultPage + 1); ?>" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-							<span class="sr-only">Next</span>
-						</a>
-					</li>
-				</ul>
-				<hr>
-			</nav>
+       		<?php if($pages > 1): ?>
+				<nav aria-label="Movie pagination">
+					<ul class="pagination justify-content-center">
+						<li class="page-item <?php if($resultPage == 0) echo "disabled" ?>">
+							<a class="page-link" href="<?php echo "\movies-library\pages\search.php?searchQuery=$searchQuery&filterCategory=$filterCategory&resultPage=".($resultPage - 1); ?>" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+								<span class="sr-only">Previous</span>
+							</a>
+						</li>
+						<?php for($i = 0; $i<$pages; $i++): ?>
+							<li class="page-item <?php if($i == $resultPage) echo "active" ?>"><a class="page-link" href="<?php echo "\movies-library\pages\search.php?searchQuery=$searchQuery&filterCategory=$filterCategory&resultPage=$i"; ?>"><?php echo $i + 1; ?></a></li>
+						<?php endfor; ?>
+						<li class="page-item <?php if($resultPage + 1 == $pages) echo "disabled" ?>">
+							<a class="page-link" href="<?php echo "\movies-library\pages\search.php?searchQuery=$searchQuery&filterCategory=$filterCategory&resultPage=".($resultPage + 1); ?>" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+								<span class="sr-only">Next</span>
+							</a>
+						</li>
+					</ul>
+					<hr>
+				</nav>
+      		<?php endif; ?>
         </main>
 <?php
 	include "../includes/footer.php";

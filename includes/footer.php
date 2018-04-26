@@ -105,5 +105,11 @@
         <script src="\movies-library\scripts\jquery-3.3.1.min.js"></script>
         <script src="\movies-library\scripts\bootstrap.min.js"></script>
         <script type="text/javascript" src="\movies-library\scripts\main.js"></script>
+        <?php if(intval($_SESSION['loginFailed']) == true): ?>
+        	<script>
+				$('#loginFailed').modal('show');
+			</script>
+			<?php $_SESSION['loginFailed'] = false; ?>
+        <?php endif; ?>
     </body>
 </html>

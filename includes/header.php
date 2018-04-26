@@ -19,6 +19,24 @@
 
     <body>
         <header>
+        	<div class='modal fade' id='loginFailed' tabindex='-1' role='dialog'>
+			  <div class='modal-dialog' role='document'>
+					<div class='modal-content'>
+						<div class='modal-header'>
+							<h5 class='modal-title text-danger'>Login failed</h5>
+							<button type='button' class='close text-danger' data-dismiss='modal' aria-label='Close'>
+							 	<span aria-hidden='true'>&times;</span>
+							</button>
+						</div>
+						<div class='modal-body'>
+							<p>Username or password was incorrect!</p>
+						</div>
+						<div class='modal-footer'>
+							<button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
@@ -28,15 +46,15 @@
 							  <span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						<form method="post" action="">
+						<form method="post" action="\movies-library\includes\userLogin.php">
 							<div class="modal-body">
 									<div class="form-group">
 										<label for="login-username" class="col-form-label">Username</label>
-										<input type="text" class="form-control" placeholder="Input a valid username" maxlength="20" id="login-username" required>
+										<input type="text" class="form-control" name="username" placeholder="Input a valid username" maxlength="20" id="login-username" required>
 									</div>
 									<div class="form-group">
 										<label for="login-password" class="col-form-label">Password</label>
-										<input type="password" class="form-control" placeholder="Input a valid username" maxlength="15" minlength="5" id="login-password" required>
+										<input type="password" class="form-control" name="password" placeholder="Input a valid username" maxlength="15" minlength="5" id="login-password" required>
 									</div>
 							</div>
 							<div class="modal-footer">
@@ -56,15 +74,15 @@
 							  <span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						<form method="post" action="">
+						<form method="post" action="\movies-library\includes\userRegistration.php">
 							<div class="modal-body">
 									<div class="form-group">
 										<label for="signin-username" class="col-form-label">Username</label>
-										<input type="text" class="form-control" placeholder="Input a valid username" maxlength="20" id="signin-username" required>
+										<input type="text" class="form-control" name="username" placeholder="Input a valid username" maxlength="20" id="signin-username" required>
 									</div>
 									<div class="form-group">
-										<label for="signin-password" class="col-form-label">Password</label>
-										<input type="password" id="passInput" class="form-control" placeholder="Input a valid username" maxlength="15" minlength="5" id="signin-password" required>
+										<label for="passInput" class="col-form-label">Password</label>
+										<input type="password" id="passInput" name="password" class="form-control" placeholder="Input a valid username" maxlength="15" minlength="5" required>
 									</div>
 									<div class="form-group">
 										<label for="signin-password" class="col-form-label">Password confirmation</label>
@@ -127,9 +145,25 @@
 						</form>
 					</ul>
 				</div>
-				<form class="form-inline my-2 my-lg-0">
-					<input class="btn btn-light mr-sm-2" data-toggle="modal" data-target="#signupModal" type="button" value="Sign up">
-					<input class="btn btn-outline-light" data-toggle="modal" data-target="#loginModal" type="button" value="Login">
-				</form>
+				<?php if($_SESSION['logged-in'] == false): ?>
+					<form class="form-inline my-2 my-lg-0">
+						<input class="btn btn-light mr-sm-2" data-toggle="modal" data-target="#signupModal" type="button" value="Sign up">
+						<input class="btn btn-outline-light" data-toggle="modal" data-target="#loginModal" type="button" value="Login">
+					</form>
+				<?php else: ?>
+					<form class="form-inline my-2 my-lg-0">
+						<div class="btn-group">
+							<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fa fa-user fa-lg"></i> <?php echo $_SESSION['username']; ?>
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#">My account</a>
+								<a class="dropdown-item" href="#">My library</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="\movies-library\includes\userLogout.php"><i class="fa fa-sign-out-alt"></i> Logout</a>
+							</div>
+						</div>
+					</form>
+				<?php endif; ?>
 			</nav>
         </header>

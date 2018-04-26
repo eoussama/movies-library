@@ -1,4 +1,14 @@
 <?php
+	session_start();
+	
+	$_SESSION['logged-in'] = (!isset($_SESSION['logged-in'])) ? true : $_SESSION['logged-in'];
+	$_SESSION['loginFailed'] = (!isset($_SESSION['loginFailed'])) ? false : $_SESSION['loginFailed'];
+	$_SESSION['username'] = (!isset($_SESSION['username'])) ? '' : $_SESSION['username'];
+	$_SESSION['password'] = (!isset($_SESSION['password'])) ? '' : $_SESSION['password'];
+	$_SESSION['userId'] = (!isset($_SESSION['userId'])) ? 0: $_SESSION['userId'];
+	$_SESSION['joinDate'] = (!isset($_SESSION['joinDate'])) ? 0 : $_SESSION['joinDate'];
+	$_SESSION['moderator'] = (!isset($_SESSION['moderator'])) ? 0 : $_SESSION['moderator'];
+		
 	include "includes/header.php";
 ?>
  		<main class="container mt-5 mb-5">
