@@ -4,17 +4,24 @@
 
 	$searchQuery = $_GET['searchQuery'];
 	$filterCategory = !isset($_GET['filterCategory']) == true ? "" : $_GET['filterCategory'];
-
-	if(strlen($filterCategory) == 0)
-		$query = "SELECT * FROM `movies` WHERE `title` LIKE '%$searchQuery%';";
+	$resultPage = !isset($_GET['resultPage']) == true ? 0 : $_GET['resultPage'];
+	
+	if(strlen($filterCategory) == 0) {
+		$query = "SELECT * FROM `movies` WHERE `title` LIKE '%$searchQuery%' LIMIT ".($resultPage * 5).", 5;";
+		$rquery = "SELECT * FROM `movies` WHERE `title` LIKE '%$searchQuery%';";
+	}
 	else
-		$query = "SELECT * FROM `movies` WHERE `title` LIKE '%$searchQuery%' AND `categories` LIKE '%$filterCategory%';";
-
+	{
+		$query = "SELECT * FROM `movies` WHERE `title` LIKE '%$searchQuery%' AND `categories` LIKE '%$filterCategory%' LIMIT ".($resultPage * 5).", 5;";
+		$rquery = "SELECT * FROM `movies` WHERE `title` LIKE '%$searchQuery%' AND `categories` LIKE '%$filterCategory%';";
+	}
 	$results = mysqli_query($con, $query);
+	$rows = mysqli_num_rows(mysqli_query($con, $rquery));
+	$pages = ceil($rows / 5);
 	$movies = mysqli_fetch_all($results, MYSQLI_ASSOC);
 ?>
  		<main class="container mt-5 mb-5">
-      		<h2><i class="fa fa-search"></i> Searching for <?php echo (strlen($searchQuery) == 0 ? "<b>[Movies]</b>" : "<b>[$searchQuery]</b>"); ?> - <?php echo (strlen($filterCategory) != 0 ? "Filter: <b>[$filterCategory]</b> -" : ""); ?> <?php echo "<b>".sizeof($movies)."</b>"; ?> movie(s) found.</h2>
+      		<h2><i class="fa fa-search"></i> Searching for <?php echo (strlen($searchQuery) == 0 ? "<b>[Movies]</b>" : "<b>[$searchQuery]</b>"); ?> - <?php echo (strlen($filterCategory) != 0 ? "Filter: <b>[$filterCategory]</b> -" : ""); ?> <?php echo "<b>".$rows."</b>"; ?> movie(s) found.</h2>
       		<hr>
       		<?php if(sizeof($movies) == 0): ?>
       			<div class="alert alert-danger" role="alert">
@@ -46,6 +53,27 @@
 					</div>
 				<?php endforeach; ?>
        		<?php endif; ?>
+       		
+       		<nav aria-label="Movie pagination">
+				<ul class="pagination justify-content-center">
+					<li class="page-item <?php if($resultPage == 0) echo "disabled" ?>">
+						<a class="page-link" href="<?php echo "\movies-library\pages\search.php?searchQuery=$searchQuery&filterCategory=$filterCategory&resultPage=".($resultPage - 1); ?>" aria-label="Previous">
+							<span aria-hidden="true">&laquo;</span>
+							<span class="sr-only">Previous</span>
+						</a>
+					</li>
+					<?php for($i = 0; $i<$pages; $i++): ?>
+						<li class="page-item <?php if($i == $resultPage) echo "active" ?>"><a class="page-link" href="<?php echo "\movies-library\pages\search.php?searchQuery=$searchQuery&filterCategory=$filterCategory&resultPage=$i"; ?>"><?php echo $i + 1; ?></a></li>
+					<?php endfor; ?>
+					<li class="page-item <?php if($resultPage + 1 == $pages) echo "disabled" ?>">
+						<a class="page-link" href="<?php echo "\movies-library\pages\search.php?searchQuery=$searchQuery&filterCategory=$filterCategory&resultPage=".($resultPage + 1); ?>" aria-label="Next">
+							<span aria-hidden="true">&raquo;</span>
+							<span class="sr-only">Next</span>
+						</a>
+					</li>
+				</ul>
+				<hr>
+			</nav>
         </main>
 <?php
 	include "../includes/footer.php";

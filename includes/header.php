@@ -115,6 +115,7 @@
 								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Romance">Romance</a>
 								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Thriller">Thriller</a>
 								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=War">War</a>
+								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Western">Western</a>
 							</div>
 						</li>
 						<li class="nav-item">
