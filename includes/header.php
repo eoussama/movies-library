@@ -86,7 +86,7 @@
         		<p class="text-secondary">The future of looking up movies</p>
         	</div>
         	
-        	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        	<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 				</button>
@@ -95,30 +95,33 @@
 						<li class="nav-item">
 							<a class="nav-link" href="\movies-library\index.php">Home</a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="\movies-library\pages\search.php?searchQuery=&filterCategory=">All movies</a>
+						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						  Categories
 						</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="#">Action</a>
-								<a class="dropdown-item" href="#">Adventure</a>
-								<a class="dropdown-item" href="#">Biography</a>
-								<a class="dropdown-item" href="#">Comedy</a>
-								<a class="dropdown-item" href="#">Crime</a>
-								<a class="dropdown-item" href="#">Drama</a>
-								<a class="dropdown-item" href="#">Fantasy</a>
-								<a class="dropdown-item" href="#">Horro</a>
-								<a class="dropdown-item" href="#">Sci-fi</a>
-								<a class="dropdown-item" href="#">Romance</a>
-								<a class="dropdown-item" href="#">Thriller</a>
-								<a class="dropdown-item" href="#">War</a>
+								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Action">Action</a>
+								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Adventure">Adventure</a>
+								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Biography">Biography</a>
+								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Comedy">Comedy</a>
+								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Crime">Crime</a>
+								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Drama">Drama</a>
+								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Fantasy">Fantasy</a>
+								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Horro">Horror</a>
+								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Sci-fi">Sci-fi</a>
+								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Romance">Romance</a>
+								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=Thriller">Thriller</a>
+								<a class="dropdown-item" href="\movies-library\pages\search.php?searchQuery=&filterCategory=War">War</a>
 							</div>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="javascript:void(0)" id="aboutUs">About us</a>
 						</li>
-						<form class="form-inline ml-2">
-							<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+						<form method="get" action="\movies-library\pages\search.php" class="form-inline ml-2">
+							<input class="form-control mr-sm-2" type="search" placeholder="Search for a movie..." name="searchQuery" aria-label="Search" maxlength="60" required>
 							<button class="btn btn-outline-light" type="submit">Search</button>
 						</form>
 					</ul>

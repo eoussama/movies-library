@@ -3,7 +3,9 @@ $(document).ready(function() {
 		$latestFeatures = $('#latestFeatures'),
 		$aboutUs = $('#aboutUs'),
 		$backToTop = $("#backToTop"),
-		$subBtn = $('#subBtn');
+		$subBtn = $('#subBtn'),
+		$headerHeight = $('header div.jumbotron').outerHeight(),
+		$navbar = $('#navbar');
 	
 	$aboutUs.on('click', function() {
 		$("html, body").animate({ scrollTop: $(document).height() }, "slow");
@@ -23,5 +25,12 @@ $(document).ready(function() {
 			$($pConfInput)[0].setCustomValidity('The passwords do not match!');
 		else
 			$($pConfInput)[0].setCustomValidity('');
+	});
+	
+	$(window).on('scroll', function() {
+		if($headerHeight <= this.scrollY)
+			$navbar.addClass('navbar-sticky');
+		else
+			$navbar.removeClass('navbar-sticky');
 	});
 });

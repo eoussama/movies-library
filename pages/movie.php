@@ -32,7 +32,7 @@
 							</p>
 						</div>
 						<div class="col-3">
-							<p class=" score"><i class="fa fa-star"></i> Score:  <?php echo $movie['score']; ?></p>
+							<p class=" score"><i class="fa fa-star"></i> Score: <?php echo $movie['score']; ?></p>
 							<a target="_blank" href="https://www.youtube.com/results?search_query=<?php echo $movie['title']; ?> trailer" class="btn btn-dark btn-block">Movie trailer</a>
 						</div>
 					</div>
