@@ -8,6 +8,9 @@
 	$_SESSION['userId'] = (!isset($_SESSION['userId'])) ? 0: $_SESSION['userId'];
 	$_SESSION['joinDate'] = (!isset($_SESSION['joinDate'])) ? 0 : $_SESSION['joinDate'];
 	$_SESSION['moderator'] = (!isset($_SESSION['moderator'])) ? 0 : $_SESSION['moderator'];
+
+	if($_SESSION['username'] === '')
+		$_SESSION['logged-in'] = false;
 		
 	include "includes/header.php";
 ?>

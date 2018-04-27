@@ -9,6 +9,12 @@
 	$_SESSION['joinDate'] = (!isset($_SESSION['joinDate'])) ? 0 : $_SESSION['joinDate'];
 	$_SESSION['moderator'] = (!isset($_SESSION['moderator'])) ? 0 : $_SESSION['moderator'];
 
+	if($_SESSION['username'] === '')
+		$_SESSION['logged-in'] = false;
+
+	if(!isset($_GET['searchQuery']))
+		header("Location: \movies-library\index.php");
+
 	include "../includes/header.php";
 	include "../includes/database.php";
 

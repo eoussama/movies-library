@@ -5,7 +5,8 @@ $(document).ready(function() {
 		$backToTop = $("#backToTop"),
 		$subBtn = $('#subBtn'),
 		$headerHeight = $('header div.jumbotron').outerHeight(),
-		$navbar = $('#navbar');
+		$navbar = $('#navbar'),
+		$updateUserForm = $('#updateUserForm');
 	
 	$aboutUs.on('click', function() {
 		$("html, body").animate({ scrollTop: $(document).height() }, "slow");
@@ -34,8 +35,39 @@ $(document).ready(function() {
 	});
 	
 	$('table.table tbody tr').on('click', function(e) {
-		//console.log(e.target);
 		window.open($(this).data("href"))
+	});
+	
+	$updateUserForm.on('submit', function(e) {
+		let
+			$username = $('#updateUsername'),
+			$curPass = $('#curPass'),
+			$newPass = $('#newPass');
+		
+		e.preventDefault();
+		
+		$.ajax({
+			url: '/movies-library/includes/updateUser.php',
+			method: 'post',
+			data: {
+				username: $username.val(),
+				curPass: $curPass.val(),
+				newPass: $newPass.val(),
+			}
+		}).done(function(data) {
+			if(data === 'userTaken') {
+				$('#errorModal div.modal-body p').html(`The username <b>${$username.val()}</b> is not available.`);
+				$('#errorModal').modal('show');
+			} else if(data === 'false') {
+				$('#errorModal div.modal-body p').html('You have entered a wrong password.');
+				$('#errorModal').modal('show');
+			} else if(data === 'true') {
+				$('#movieModal div.modal-body p').html('You have successfully updated your account.');
+				$('#movieModal').modal('show');
+				$('#account-userName').text($username.val());
+				$('#dropdown-username').html(`<i class="fa fa-user fa-lg"></i> ${$username.val()}`);
+			}
+		});
 	});
 });
 

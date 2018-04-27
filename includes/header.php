@@ -19,6 +19,24 @@
 
     <body>
         <header>
+        	<div class='modal fade' id='errorModal' tabindex='-1' role='dialog'>
+			  <div class='modal-dialog' role='document'>
+					<div class='modal-content'>
+						<div class='modal-header'>
+							<h5 class='modal-title text-danger'>Error</h5>
+							<button type='button' class='close text-danger' data-dismiss='modal' aria-label='Close'>
+							 	<span aria-hidden='true'>&times;</span>
+							</button>
+						</div>
+						<div class='modal-body'>
+							<p></p>
+						</div>
+						<div class='modal-footer'>
+							<button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
         	<div class='modal fade' id='loginFailed' tabindex='-1' role='dialog'>
 			  <div class='modal-dialog' role='document'>
 					<div class='modal-content'>
@@ -165,6 +183,20 @@
 						</form>
 					</ul>
 				</div>
+				<?php if($_SESSION['moderator'] > 0): ?>
+					<form class="form-inline my-2 my-lg-0 mr-2">
+						<div class="btn-group">
+							<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fa fa-cog fa-lg"></i> Settings
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="\movies-library\pages\users.php">Users</a>
+								<a class="dropdown-item" href="\movies-library\pages\moderators.php">Moderators</a>
+								<a class="dropdown-item" href="\movies-library\pages\movies.php">Movies</a>
+							</div>
+						</div>
+					</form>
+				<?php endif; ?>
 				<?php if($_SESSION['logged-in'] == false): ?>
 					<form class="form-inline my-2 my-lg-0">
 						<input class="btn btn-light mr-sm-2" data-toggle="modal" data-target="#signupModal" type="button" value="Sign up">
@@ -173,11 +205,11 @@
 				<?php else: ?>
 					<form class="form-inline my-2 my-lg-0">
 						<div class="btn-group">
-							<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button type="button" id="dropdown-username" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="fa fa-user fa-lg"></i> <?php echo $_SESSION['username']; ?>
 							</button>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="#">My account</a>
+								<a class="dropdown-item" href="\movies-library\pages\account.php">My account</a>
 								<a class="dropdown-item" href="\movies-library\pages\library.php">My library</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="\movies-library\includes\userLogout.php"><i class="fa fa-sign-out-alt"></i> Logout</a>
