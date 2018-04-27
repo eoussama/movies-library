@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="application-name" content="Movies library">
-        <meta name="author" content="EOussama">
+        <meta name="author" content="EOussama, ARedouan, LRachid">
         <meta name="description" content="A simple movies browsing platform.">
         <meta name="keywords" content="movies, movie database">
 
@@ -178,7 +178,7 @@
 							</button>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="#">My account</a>
-								<a class="dropdown-item" href="#">My library</a>
+								<a class="dropdown-item" href="\movies-library\pages\library.php">My library</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="\movies-library\includes\userLogout.php"><i class="fa fa-sign-out-alt"></i> Logout</a>
 							</div>

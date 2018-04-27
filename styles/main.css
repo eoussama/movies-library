@@ -24,10 +24,12 @@ nav.navbar-sticky {
     z-index: 100;
 }
 
-i#addMovie {
+i#addMovie, i#removeMovie {
 	cursor: pointer;
 	transition-property: color;
 	transition-duration: .5s;
 }
 
-i#addMovie:hover { color: #404040; }
+i#addMovie:hover, i#removeMovie:hover { color: #404040; }
+
+table.cursor tr { cursor: pointer; }

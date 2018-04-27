@@ -1,6 +1,6 @@
 <?php
-    include "database.php";
-	
+	require "database.php";
+
 	if(isset($_POST['movieId'])) {
 		session_start();
 
@@ -8,8 +8,8 @@
 		$query = "SELECT * FROM `libraries` WHERE `userId` = ".$_SESSION['userId']." AND `movieId` = ".$movieId.";";
 		$results = mysqli_query($con, $query);
 
-		if(mysqli_num_rows($results) == 0) {
-			$query = "INSERT INTO `libraries`(`userId`, `movieId`) VALUES (".$_SESSION['userId'].", ".$movieId.");";
+		if(mysqli_num_rows($results) == 1) {
+			$query = "DELETE FROM `libraries` WHERE `userId` = ".$_SESSION['userId']." AND `movieId` = ".$movieId.";";
 			mysqli_query($con, $query);
 			echo "true";
 		}

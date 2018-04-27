@@ -30,8 +30,13 @@
 								<h2 class="text-left"><?php echo "${movie["title"]} - (".date('Y', strtotime($movie["releaseDate"])).")"; ?></h2>
 							</div>
 							<div class="col-2">
-								<h2 class="text-right">
-									<i id="addMovie" class="fa fa-plus" onclick="addMovie(<?php echo $movieId.", '".$movie["title"]."'"; ?>);"></i>
+								<h2 id="controlBtns" class="text-right">
+									<?php require "../includes/functions.php"; ?>
+									<?php if(hasMovie($con, $movieId) === false): ?>
+										<i id="addMovie" class="fa fa-plus" onclick="addMovie(<?php echo $movieId.", '".$movie["title"]."'"; ?>);"></i>
+									<?php else: ?>
+										<i id="removeMovie" class="fa fa-times" onclick="removeMovie(<?php echo $movieId.", '".$movie["title"]."'"; ?>);"></i>
+									<?php endif; ?>
 								</h2>
 							</div>
 						</div>
