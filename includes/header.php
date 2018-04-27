@@ -177,9 +177,24 @@
 						<li class="nav-item">
 							<a class="nav-link" href="javascript:void(0)" id="aboutUs">About us</a>
 						</li>
-						<form method="get" action="\movies-library\pages\search.php" class="form-inline ml-2">
-							<input class="form-control mr-sm-2" type="search" placeholder="Search for a movie..." name="searchQuery" aria-label="Search" maxlength="60" required>
-							<button class="btn btn-outline-light" type="submit">Search</button>
+						<form method="get" action="\movies-library\pages\search.php" class="form-inline ml-4">
+							<div class="btn-group mr-1">
+								<button style="min-width:100px;" id="typeDD" type="button" class="btn btn-dark"><i class="fa fa-search"></i> Movies</button>
+								<button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="sr-only">Toggle Dropdown</span>
+								</button>
+								<div class="dropdown-menu">
+									<label>
+										<input style="display: none;" type="radio" name="searchType" value="movies" checked>
+										<a class="dropdown-item" onclick="updateDropDown('Movies');" >Movies</a>
+									</label>
+									<label>
+										<input style="display: none;" type="radio" name="searchType" value="users">
+										<a class="dropdown-item" onclick="updateDropDown('Users');" >Users</a>
+									</label>
+								</div>
+							</div>
+							<input class="form-control" type="search" style="width:550px;" placeholder="Search for a movie..." name="searchQuery" aria-label="Search" maxlength="60" required>
 						</form>
 					</ul>
 				</div>
@@ -191,7 +206,6 @@
 							</button>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="\movies-library\pages\users.php">Users</a>
-								<a class="dropdown-item" href="\movies-library\pages\moderators.php">Moderators</a>
 								<a class="dropdown-item" href="\movies-library\pages\movies.php">Movies</a>
 							</div>
 						</div>

@@ -103,3 +103,31 @@ function removeMovie(movieId, movieTitle) {
 function removeMovieRow(e) {
 	e.parent().parent().remove()
 }
+
+function deleteUser(e, userId) {
+	$(e).closest('li').remove();
+	
+	$.ajax({
+		url: "/movies-library/includes/deleteUser.php",
+		method: "post",
+		data: {userId: userId}
+	}).done(function(data) {
+		$('#usersCount').html(`<i class="fa fa-users"></i> <b>${$('main .list-group').children().length}</b> user(s) found.`);
+	});
+}
+
+function deleteMovie(e, movieId) {
+	$(e).closest('li').remove();
+	
+	$.ajax({
+		url: "/movies-library/includes/deleteMovie.php",
+		method: "post",
+		data: {movieId: movieId}
+	}).done(function(data) {
+		$('#moviesCount').html(`<i class="fa fa-film"></i> <b>${$('main .list-group').children().length}</b> movie(s) found.`);
+	});
+}
+
+function updateDropDown(type) {
+	$('#typeDD').html(`<i class="fa fa-search"></i> ${type}`);
+}
