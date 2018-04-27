@@ -17,6 +17,10 @@
 	$results = mysqli_query($con, $query);
 	$movie = mysqli_fetch_assoc($results);
 
+	$query = 'SELECT COUNT(`userId`) AS `members` FROM `libraries` WHERE `movieId` = '.$movieId.';';
+	$rMems = mysqli_query($con, $query);
+	$members = mysqli_fetch_assoc($rMems);
+
 	function formatTime($minutes) {
 		return intval(($minutes/60))."h ".intval($minutes%60)."m";
 	}
@@ -55,8 +59,9 @@
 							<p><i class="fa fa-clock"></i> Length: <span class="focus"><?php echo formatTime($movie['length']); ?></span></p>
 							<p><i class="fa fa-filter"></i> Categorie(s): <span class="focus"><?php echo $movie['categories']; ?></span></p>
 							<p><i class="fa fa-calendar-alt"></i> Release date: <span class="focus"><?php echo date('Y - M - d', strtotime($movie['releaseDate'])); ?></span></p>
+							<p><i class="fa fa-users"></i> Members: <span class="focus"><?php echo $members["members"]; ?></span></p>
 							<p>Description:
-								<textarea style="width: 700px; height: 300px; resize: none;" readonly><?php echo $movie["description"]; ?></textarea>
+								<textarea style="width: 700px; height: 260px; resize: none;" readonly><?php echo $movie["description"]; ?></textarea>
 							</p>
 						</div>
 						<div class="col-3">
