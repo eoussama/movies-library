@@ -1,5 +1,7 @@
-<img src="images/logo.svg" style="width: 150px; position: relative; left: 49%; transform: translate(-49%);">
-<h1 align="center">Movie library</h1>
+<p align="center">
+  <img src="images/logo.svg" width="100px;" height="100px;">
+  <h1 align="center">Movie library</h1>
+</p>
 <hr>
 
 ## Description
