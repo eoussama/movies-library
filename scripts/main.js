@@ -131,3 +131,13 @@ function deleteMovie(e, movieId) {
 function updateDropDown(type) {
 	$('#typeDD').html(`<i class="fa fa-search"></i> ${type}`);
 }
+
+function updateImage(source) {
+	var fReader = new FileReader();
+	
+	fReader.onload = function(e) {
+		$('#moviePoster').attr('src', e.target.result);
+	}
+	
+	fReader.readAsDataURL(source.files[0]);
+}

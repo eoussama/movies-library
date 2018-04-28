@@ -92,7 +92,7 @@
        			<?php if(sizeof($users) == 0): ?>
 					<div class="alert alert-danger" role="alert">
 						<h4 class="alert-heading"><i class="fa fa-exclamation-triangle"></i> Search failed</h4>
-						<p>No movies in out database were found under the matching query search <b><?php echo $searchQuery; ?></b>, make sure you typed the correct keyword, or contact our support team for help.</p>
+						<p>No users in out database were found under the matching query search <b><?php echo $searchQuery; ?></b>, make sure you typed the correct keyword, or contact our support team for help.</p>
 						<hr>
 						<p class="mb-0">With love, movies library team.</p>
 					</div>
@@ -100,7 +100,7 @@
 					<?php foreach($users as $user): ?>
 						<div class="card mb-3">
 							<div class="card-header">
-								<h3><a href="/movies-library/pages/user.php?userId=<?php echo $user['userId']; ?>" target="_blank" ><?php echo "${user["username"]}"; ?></a></h3>
+								<h3><i class="fa fa-user"></i> <a href="/movies-library/pages/user.php?userId=<?php echo $user['userId']; ?>" target="_blank" ><?php echo "${user["username"]}"; ?></a></h3>
 							</div>
 						</div>
 					<?php endforeach; ?>

@@ -9,9 +9,6 @@
 	$_SESSION['joinDate'] = (!isset($_SESSION['joinDate'])) ? 0 : $_SESSION['joinDate'];
 	$_SESSION['moderator'] = (!isset($_SESSION['moderator'])) ? 0 : $_SESSION['moderator'];
 
-	if($_SESSION['logged-in'] === false)
-		header('Location: \movies-library\index.php');
-
 	if(!isset($_GET['userId']))
 		header('Location: \movies-library\index.php');
 
